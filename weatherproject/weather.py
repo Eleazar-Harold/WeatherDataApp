@@ -21,11 +21,7 @@ def main():
             dy = line[0]
             ln1 = line[1].split('*')  # assumption: asterisks was eliminated to use the integer value
             ln2 = line[2].split('*')  # assumption: asterisks was eliminated to use the integer value
-            mxt = int(
-                ln1[0])  # convert ln[1] string values to integer, assigns MXT value from weather.dat to variable mxt
-            mnt = int(
-                ln2[0])  # convert ln[2] string values to integer, assigns MNT value from weather.dat to variable mnt
-            diff = (mxt - mnt)  # get difference of [mxt] and [mnt] variables
+            diff = (int(ln1[0]) - int(ln2[0]))  # get difference of [mxt] and [mnt] variables
             if dy not in arr:
                 arr.append([dy, diff])  # append difference [diff] values to an array
 
@@ -42,6 +38,5 @@ def main():
         print("(Exception: ", e)
     except ValueError as e:
         print('Invalid file type: ', e)
-
 
 if __name__ == '__main__': main()
